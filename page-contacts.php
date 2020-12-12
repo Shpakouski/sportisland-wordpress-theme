@@ -11,6 +11,7 @@
         </div>
         <section class="contacts">
             <?php 
+            if(have_posts()):
                 while(have_posts()):
                 the_post();
             ?>
@@ -56,7 +57,10 @@
                     <button class="contacts-form__btn btn"> Отправить </button>
                 </form>
             </div>
-            <?php endwhile; ?>
+            <?php 
+                endwhile; 
+            endif;
+            ?>
         </section>
     </main>
 <?php
