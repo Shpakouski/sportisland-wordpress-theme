@@ -1,7 +1,9 @@
 <?php
 
-class SI_Widget_Social_Links extends WP_Widget {
-    public function __construct(){
+class SI_Widget_Social_Links extends WP_Widget
+{
+    public function __construct()
+    {
         parent::__construct('si_widget_social_links', 'SportIsland - Социальные ссылки', [
             'name' => 'SportIsland - Социальные ссылки',
             'description' => 'Выводит ссылки на социальные сети'
@@ -238,62 +240,65 @@ class SI_Widget_Social_Links extends WP_Widget {
         ],
     ];
 
-    public function form($instance){
-?>
-<p>
-    <label for="<?php echo $this->get_field_id('id-link'); ?>">
-        Ссылка на социальную сеть:
-    </label>
-    <input 
-        id="<?php echo $this->get_field_id('id-link'); ?>" 
-        type="text" 
-        name="<?php echo $this->get_field_name('link'); ?>" 
-        value="<?php echo $instance['link']; ?>"
-        class="widefat"
-    >
-</p>
-<p>
-    <label for="<?php echo $this->get_field_id('id-slug'); ?>">
-        Выберите социальную сеть:
-    </label>
-    <select 
-        id="<?php echo $this->get_field_id('id-slug'); ?>" 
-        name="<?php echo $this->get_field_name('slug'); ?>"
-        class="widefat"
-    >
-        <?php
-        foreach($this->socials as $slug => $desc):
+    public function form($instance)
+    {
         ?>
-        <option 
-        value="<?php echo $slug; ?>"
-        <?php selected($instance['slug'], $slug, true); ?>
-        >
-        <?php echo $desc[0]; ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-</p>
-<?php
+        <p>
+            <label for="<?php echo $this->get_field_id('id-link'); ?>">
+                Ссылка на социальную сеть:
+            </label>
+            <input
+                    id="<?php echo $this->get_field_id('id-link'); ?>"
+                    type="text"
+                    name="<?php echo $this->get_field_name('link'); ?>"
+                    value="<?php echo $instance['link']; ?>"
+                    class="widefat"
+            >
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('id-slug'); ?>">
+                Выберите социальную сеть:
+            </label>
+            <select
+                    id="<?php echo $this->get_field_id('id-slug'); ?>"
+                    name="<?php echo $this->get_field_name('slug'); ?>"
+                    class="widefat"
+            >
+                <?php
+                foreach ($this->socials as $slug => $desc):
+                    ?>
+                    <option
+                            value="<?php echo $slug; ?>"
+                        <?php selected($instance['slug'], $slug, true); ?>
+                    >
+                        <?php echo $desc[0]; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </p>
+        <?php
     }
 
-    public function widget($args, $instance){
+    public function widget($args, $instance)
+    {
         $slug = $instance['slug'];
         $link = $instance['link'];
         $text = $this->socials[$slug][0];
         $svg = $this->socials[$slug][1];
-    ?>
-        <a 
-        target="_blank" 
-        href="<?php echo $link; ?>" 
-        class="widget-social-links <?php echo $slug; ?>"
+        ?>
+        <a
+                target="_blank"
+                href="<?php echo $link; ?>"
+                class="widget-social-links <?php echo $slug; ?>"
         >
             <span class="sr-only"> Мы в <?php echo $text; ?>! </span>
             <?php echo $svg; ?>
         </a>
-    <?php
+        <?php
     }
 
-    public function update($new_instance, $old_instance){
+    public function update($new_instance, $old_instance)
+    {
         return $new_instance;
     }
 }

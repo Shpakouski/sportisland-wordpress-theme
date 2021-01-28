@@ -1,5 +1,5 @@
 <?php
-    get_header();
+get_header();
 ?>
 
     <main class="main-content">
@@ -17,59 +17,59 @@
                 <h2 class="main-heading prices__h">Цены</h2>
                 <table>
                     <thead>
-                        <tr>
-                            <td>Услуга</td>
-                            <td>Разовая покупка</td>
-                            <td>1 месяц</td>
-                            <td>6 месяцев</td>
-                            <td>12 месяцев</td>
-                        </tr>
+                    <tr>
+                        <td>Услуга</td>
+                        <td>Разовая покупка</td>
+                        <td>1 месяц</td>
+                        <td>6 месяцев</td>
+                        <td>12 месяцев</td>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td> Фитнес </td>
-                            <td> 200 <span> р.- </span>
-                            </td>
-                            <td> 900 <span> р.- </span>
-                            </td>
-                            <td> 4800 <span> р.- </span>
-                            </td>
-                            <td> 9000 <span> р.- </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Тренажерный зал </td>
-                            <td> 200 <span> р.- </span>
-                            </td>
-                            <td> 900 <span> р.- </span>
-                            </td>
-                            <td> 4800 <span> р.- </span>
-                            </td>
-                            <td> 9000 <span> р.- </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Женский фитнес </td>
-                            <td> 200 <span> р.- </span>
-                            </td>
-                            <td> 1100 <span> р.- </span>
-                            </td>
-                            <td> 6000 <span> р.- </span>
-                            </td>
-                            <td> 11000 <span> р.- </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Бокс </td>
-                            <td> 200 <span> р.- </span>
-                            </td>
-                            <td> 900 <span> р.- </span>
-                            </td>
-                            <td> 4800 <span> р.- </span>
-                            </td>
-                            <td> 9000 <span> р.- </span>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td> Фитнес</td>
+                        <td> 200 <span> р.- </span>
+                        </td>
+                        <td> 900 <span> р.- </span>
+                        </td>
+                        <td> 4800 <span> р.- </span>
+                        </td>
+                        <td> 9000 <span> р.- </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Тренажерный зал</td>
+                        <td> 200 <span> р.- </span>
+                        </td>
+                        <td> 900 <span> р.- </span>
+                        </td>
+                        <td> 4800 <span> р.- </span>
+                        </td>
+                        <td> 9000 <span> р.- </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Женский фитнес</td>
+                        <td> 200 <span> р.- </span>
+                        </td>
+                        <td> 1100 <span> р.- </span>
+                        </td>
+                        <td> 6000 <span> р.- </span>
+                        </td>
+                        <td> 11000 <span> р.- </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Бокс</td>
+                        <td> 200 <span> р.- </span>
+                        </td>
+                        <td> 900 <span> р.- </span>
+                        </td>
+                        <td> 4800 <span> р.- </span>
+                        </td>
+                        <td> 9000 <span> р.- </span>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </section>
@@ -121,5 +121,5 @@
     </main>
 
 <?php
-    get_footer();
+get_footer();
 ?>
