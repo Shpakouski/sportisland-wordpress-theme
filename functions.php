@@ -21,6 +21,8 @@ add_action('save_post', 'si_save_like_meta');
 add_action('admin_init', 'si_register_slogan');
 add_action('admin_post_nopriv_si-modal-form', 'si_modal_form_handler');
 add_action('admin_post_si-modal-form', 'si_modal_form_handler');
+add_action('wp_ajax_nopriv_post-likes', 'si_likes');
+add_action('wp_ajax_post-likes', 'si_likes');
 add_shortcode('si-paste-link', 'si_paste_link');
 
 add_filter('show_admin_bar', '__return_false');
@@ -298,8 +300,8 @@ function si_meta_like_cb($post_obj)
 {
     $likes = get_post_meta($post_obj->ID, 'si-like', true);
     $likes = $likes ? $likes : 0;
-    echo "<input type=\"text\" name=\"si-like\" value=\"${likes}\">";
-//    echo '<p>' . $likes . '</p>';
+//    echo "<input type=\"text\" name=\"si-like\" value=\"${likes}\">";
+    echo '<p>' . $likes . '</p>';
 }
 
 function si_save_like_meta($post_id)
@@ -340,6 +342,27 @@ function si_option_slogan_cb($args)
 function si_modal_form_handler()
 {
     header('Location: ' . home_url());
+}
+
+function si_likes()
+{
+    $id = $_POST['id'];
+    $todo = $_POST['todo'];
+    $current_data = get_post_meta($id, 'si-like', true);
+    $current_data = $current_data ? $current_data : 0;
+    if ($todo === 'plus') {
+        $current_data++;
+    } else {
+        $current_data--;
+    }
+    $res = update_post_meta($id, 'si-like', $current_data);
+    if ($res) {
+        echo $current_data;
+        wp_die();
+    } else {
+        wp_die('Лайк не сохранился, ошибка на сервере. Попробуйте еще раз.', 500);
+    }
+
 }
 
 function _si_assets_path($path)
