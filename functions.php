@@ -30,6 +30,19 @@ add_filter('show_admin_bar', '__return_false');
 add_filter('manage_posts_columns', 'si_add_col_likes');
 add_filter('si_widget_text', 'do_shortcode');
 
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+
 function si_setup()
 {
     register_nav_menu('menu-header', 'Меню в шапке');
@@ -57,6 +70,10 @@ function si_scripts()
         '1.0',
         'all'
     );
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('bodhi-svgs-attachment');
+    wp_dequeue_style('wp-embed');
+    wp_dequeue_script('wp-embed');
 }
 
 function si_register()
