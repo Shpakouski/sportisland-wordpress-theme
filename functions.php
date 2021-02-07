@@ -25,6 +25,7 @@ add_action('wp_ajax_nopriv_post-likes', 'si_likes');
 add_action('wp_ajax_post-likes', 'si_likes');
 add_shortcode('si-paste-link', 'si_paste_link');
 add_action('manage_posts_custom_column', 'si_like_column', 5, 2);
+add_action('wp_head', 'si_analytics');
 
 add_filter('show_admin_bar', '__return_false');
 add_filter('manage_posts_columns', 'si_add_col_likes');
@@ -42,6 +43,24 @@ remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
+function si_analytics()
+{
+    ?>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-54PV0X2W16"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-54PV0X2W16');
+    </script>
+    <?php
+
+}
 
 function si_setup()
 {
